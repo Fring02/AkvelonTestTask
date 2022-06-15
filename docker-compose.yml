@@ -1,0 +1,28 @@
+﻿version: '3.4'
+
+services:
+  test_task_web:
+    container_name: test_task_web
+    image: ${DOCKER_REGISTRY-}test_task_web
+    ports:
+      - "5001:80"
+    build: 
+      context: .
+      dockerfile: Web/Dockerfile
+    environment:
+      - "ConnectionStrings:DefaultConnection=User ID=admin;Password=root;Host=test_task_db;Port=5432;Database=test_db;"
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - test_task_db
+    
+    
+  test_task_db:
+    container_name: test_task_db
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: admin
+      POSTGRES_DB: test_db
+    
