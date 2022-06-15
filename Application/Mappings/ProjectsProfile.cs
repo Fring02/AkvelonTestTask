@@ -3,7 +3,7 @@ using Domain.Dtos.Projects;
 using Domain.Entities;
 
 namespace Application.Mappings;
-
+//Automapper Profile which maps project entity to DTos and vice versa
 public class ProjectsProfile : Profile
 {
     public ProjectsProfile()

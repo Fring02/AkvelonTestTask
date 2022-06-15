@@ -3,6 +3,9 @@ using Domain.Enums;
 
 namespace Application.Services.Filter;
 
+/// <summary>
+/// It is used as a Fluent Builder for building projects results with where clauses as filters
+/// </summary>
 public class ProjectsFilterBuilder
 {
     public IQueryable<Project> Result { get; private set; }

@@ -14,6 +14,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+//Configure api behavior is used for outputting correctly validation error responses with 400 status code when some fields of input DTOs
+//are invalid
 builder.Services.AddControllers().ConfigureApiBehaviorOptions(opt => {
     opt.InvalidModelStateResponseFactory = context => 
         new BadRequestObjectResult(context.ModelState.Values.First(q => q.Errors.Count > 0).Errors
@@ -35,6 +37,7 @@ builder.Services.AddSwaggerGen(options =>
         Description =
             "Basic CRUD API for Projects and Tasks"
     });
+    //Generate Swagger description in xml to be rendered in client later
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });

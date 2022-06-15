@@ -4,6 +4,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers.Base;
 
+/// <summary>
+/// Generic CRUD controller for managing data
+/// </summary>
+/// <typeparam name="TCreateDto">The entity to be created</typeparam>
+/// <typeparam name="TUpdateDto">The entity to be edited</typeparam>
+/// <typeparam name="TViewDto">The entity to be viewed</typeparam>
+/// <typeparam name="TDetailedViewDto">The entity to be viewed more properly</typeparam>
+/// <typeparam name="TService">The service which provides all the CRUD operations</typeparam>
 [ApiController]
 public abstract class CrudController<TCreateDto, TUpdateDto, TViewDto, TDetailedViewDto, TService> : ControllerBase
 where TService : ICrudService<Guid, TCreateDto, TUpdateDto, TViewDto, TDetailedViewDto>

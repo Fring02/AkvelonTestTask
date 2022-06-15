@@ -10,6 +10,11 @@ public class Project : BaseEntity<Guid>
     public DateTime CompletionDate { get; set; }
     public ProjectStatus Status { get; set; }
 
+    /// <summary>
+    /// Get the string value of ProjectStatus enum. Is used without Enum.GetName() because of more proper value
+    /// </summary>
+    /// <param name="status">The ProjectStatus value</param>
+    /// <returns></returns>
     public string GetStatusName(ProjectStatus status)
     {
         return status switch

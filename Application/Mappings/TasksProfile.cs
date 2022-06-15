@@ -2,6 +2,7 @@
 using Domain.Dtos.Tasks;
 namespace Application.Mappings;
 
+//Automapper Profile which maps task entity to DTos and vice versa
 public class TasksProfile : Profile
 {
     public TasksProfile()

@@ -2,6 +2,7 @@
 
 namespace Domain.Interfaces.Services;
 
+//Generic CRUD interface for services: Create/edit/view/delete entities
 public interface ICrudService<in TId, TCreateDto, in TUpdateDto, TViewDto, TDetailedViewDto>
     where TUpdateDto : IDto<TId> where TViewDto : class where TDetailedViewDto : IDto<TId>
         where TCreateDto : IDto<TId>
